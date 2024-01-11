@@ -1,6 +1,6 @@
 #include<string>
 
-std::function<std::string* (unsigned char(&)[16], unsigned short&)> generar_canonicos = [&i, &m](unsigned char(&dht2)[16], unsigned short& tam_arr2) -> std::string*
+std::string generar_canonicos(unsigned char &dht2, short &tam_arr2)
 {
     for (i = 0; i < 16; i++)
     {
@@ -57,7 +57,8 @@ struct nodo
     nodo* nodo_der = nullptr;
 };
 
-std::function<nodo* (const std::string&, const unsigned char&, nodo*)> preorden_insertar = [&i](const std::string& codigos_canonicos_xx, const unsigned char& xxx_xx_nod, nodo* raiz_xx) -> nodo*
+
+nodo* (const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* raiz_xx)
 {
     for (i = 0; i < codigos_canonicos_xx.size(); i++)
     {
