@@ -1,4 +1,7 @@
+#include<iostream>
 #include<string>
+
+unsigned char val_nod[7] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x7}
 
 std::string generar_canonicos(unsigned char &dht2, short &tam_arr2)
 {
