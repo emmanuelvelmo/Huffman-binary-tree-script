@@ -109,6 +109,16 @@ for (i = 0; i < tam_arr_11; i++)
     raiz_11 = preorden_insertar(codigos_canonicos_11[i], chr_ac_nod[i], raiz_11);
 }
 
+void(nodo* &raiz_xx2)
+{
+    if (!raiz_xx2) return;
+
+    postorden_remover(raiz_xx2->nodo_izq);
+    postorden_remover(raiz_xx2->nodo_der);
+
+    delete raiz_xx2;
+};
+
 int main()
 {
     preorden_insertar();
