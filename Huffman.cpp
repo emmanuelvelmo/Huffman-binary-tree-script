@@ -1,11 +1,9 @@
 #include<iostream>
 #include<string>
 
-unsigned char val_nod[7] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x7}
-
-std::string generar_canonicos(unsigned char &dht2, short &tam_arr2)
+std::string* generar_canonicos(unsigned char (&dht2)[16], unsigned short &tam_arr2)
 {
-    for (i = 0; i < 16; i++)
+    for (unsigned short i = 0; i < 16; i++)
     {
         tam_arr2 += dht2[i];
     }
@@ -13,8 +11,8 @@ std::string generar_canonicos(unsigned char &dht2, short &tam_arr2)
     std::string* inst_codigos = new std::string[tam_arr2];
     std::string gen_codigo = "0";
 
-    m = 0;
-    for (i = 0; i < 16; i++)
+    unsigned short m = 0;
+    for (unsigned short i = 0; i < 16; i++)
     {
         for (unsigned short m2 = 0; m2 < dht2[i]; m2++)
         {
@@ -38,32 +36,19 @@ std::string generar_canonicos(unsigned char &dht2, short &tam_arr2)
     return inst_codigos;
 };
 
-unsigned short tam_arr_00 = 0;
-std::string* codigos_canonicos_00 = generar_canonicos(dht_00, tam_arr_00);
-
-unsigned short tam_arr_01 = 0;
-std::string* codigos_canonicos_01 = generar_canonicos(dht_01, tam_arr_01);
-
-unsigned short tam_arr_10 = 0;
-std::string* codigos_canonicos_10 = generar_canonicos(dht_10, tam_arr_10);
-
-unsigned short tam_arr_11 = 0;
-std::string* codigos_canonicos_11 = generar_canonicos(dht_11, tam_arr_11);
-
 struct nodo
 {
     nodo(const std::string& cod_nodo2 = "", unsigned char valor_nodo2 = '\0') : cod_nodo(cod_nodo2), valor_nodo(valor_nodo2) {}
-
+    
     std::string cod_nodo;
     unsigned char valor_nodo;
     nodo* nodo_izq = nullptr;
     nodo* nodo_der = nullptr;
 };
 
-
-nodo* (const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* raiz_xx)
+nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* raiz_xx)
 {
-    for (i = 0; i < codigos_canonicos_xx.size(); i++)
+    for (unsigned short i = 0; i < codigos_canonicos_xx.size(); i++)
     {
         if (codigos_canonicos_xx[i] == '0')
         {
@@ -88,31 +73,7 @@ nodo* (const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod,
     return raiz_xx;
 };
 
-nodo* raiz_00 = nullptr;
-for (i = 0; i < tam_arr_00; i++)
-{
-    raiz_00 = preorden_insertar(codigos_canonicos_00[i], lum_dc_nod[i], raiz_00);
-}
-
-nodo* raiz_01 = nullptr;
-for (i = 0; i < tam_arr_01; i++)
-{
-    raiz_01 = preorden_insertar(codigos_canonicos_01[i], chr_dc_nod[i], raiz_01);
-}
-
-nodo* raiz_10 = nullptr;
-for (i = 0; i < tam_arr_10; i++)
-{
-    raiz_10 = preorden_insertar(codigos_canonicos_10[i], lum_ac_nod[i], raiz_10);
-}
-
-nodo* raiz_11 = nullptr;
-for (i = 0; i < tam_arr_11; i++)
-{
-    raiz_11 = preorden_insertar(codigos_canonicos_11[i], chr_ac_nod[i], raiz_11);
-}
-
-void(nodo* &raiz_xx2)
+void postorden_remover(nodo* &raiz_xx2)
 {
     if (!raiz_xx2) return;
 
@@ -124,8 +85,19 @@ void(nodo* &raiz_xx2)
 
 int main()
 {
-    preorden_insertar();
-    postorden_remover();
+    unsigned char dht_00[16] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+    std::string lum_dc_nod;
+    
+    unsigned short tam_arr_00 = 0;
+    std::string* codigos_canonicos_00 = generar_canonicos(dht_00, tam_arr_00);
+    
+    nodo* raiz_00 = nullptr;
+    for (unsigned short i = 0; i < tam_arr_00; i++)
+    {
+        raiz_00 = preorden_insertar(codigos_canonicos_00[i], lum_dc_nod[i], raiz_00);
+    }
+    
+    postorden_remover(raiz_00);
     
     return 0;
 }
