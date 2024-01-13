@@ -30,14 +30,14 @@
   (Deleted) Value: 0, Code:
   <br/>
   <br/>
-  9 total nodes: 4 roots and 5 "empty" nodes (value 0 by default). Based on HUFFVAL table with 4 total values: 1 value of 2 bits length, 2 values of 3 bits length and 1 value of 4 bits length. Roots correspond to values in the HUFFVAL table.
+  <strong>Context</strong>
   <br/>
-  Nodes added via preorder traversal, removed via postorder traversal.
+  9 total nodes: 4 roots and 5 "empty" nodes (value 0 by default). Based on HUFFVAL table with 4 total values: 1 value of 2 bits length, 2 values of 3 bits length and 1 value of 4 bits length. Roots correspond to values in the HUFFVAL table. Nodes added via preorder traversal, removed via postorder traversal.
   <br/>
 </p>
 
 <p align="left">
   <strong>Example Huffman binary tree visualization</strong>
   <br/>
-  <img src="https://github.com/emmanuelvelmo/Huffman-binary-tree-script/assets/51292782/35ec817e-40c7-4bff-b6c9-45bb9280b5ce>
+  <img src="https://github.com/emmanuelvelmo/Huffman-binary-tree-script/assets/51292782/3ac3ef9b-ed8d-45b7-b7ce-4536b943db23>
 </p>
