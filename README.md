@@ -29,12 +29,13 @@
   <br/>
   (Deleted) Value: 0, Code:
   <br/>
-  <img src="https://github.com/emmanuelvelmo/"/>
-
+  <br/>
+  Nodes added via preorder traversal, removed via postorder traversal. Based on HUFFVAL table
+  <br/>
 </p>
 
 <p align="left">
-  <strong>Título 2</strong>
+  <strong>Example Huffman binary tree visualization</strong>
   <br/>
   <img src="https://github.com/emmanuelvelmo/"/>
 </p>
