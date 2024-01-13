@@ -50,8 +50,10 @@ std::string* generar_canonicos(unsigned char (&dht2)[16], unsigned short &tam_ar
     return inst_codigos;
 };
 
-nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* &raiz_xx, nodo* &raiz_or2)
+nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* &raiz_xx)
 {
+    nodo* raiz_or = raiz_xx;
+    
     for (unsigned short i = 0; i < codigos_canonicos_xx.size(); i++)
     {
         if (codigos_canonicos_xx[i] == '0')
@@ -76,7 +78,7 @@ nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned 
     
     std::cout << "(Created) " << "Value: " << short(xxx_xx_nod) << ", " << "Code: " << codigos_canonicos_xx << std::endl;
     
-    return raiz_or2;
+    return raiz_or;
 };
 
 void postorden_remover(nodo* &raiz_xx2)
@@ -101,11 +103,10 @@ int main()
     std::string* codigos_canonicos_00 = generar_canonicos(dht_00, tam_arr_00);
     
     nodo* raiz_00 = new nodo;
-    nodo* raiz_or = raiz_00;
     
     for (unsigned short i = 0; i < tam_arr_00; i++)
     {
-        raiz_00 = preorden_insertar(codigos_canonicos_00[i], lum_dc_nod[i], raiz_00, raiz_or);
+        raiz_00 = preorden_insertar(codigos_canonicos_00[i], lum_dc_nod[i], raiz_00);
     }
     
     postorden_remover(raiz_00);
