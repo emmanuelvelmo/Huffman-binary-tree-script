@@ -50,19 +50,12 @@ std::string* generar_canonicos(unsigned char (&dht2)[16], unsigned short &tam_ar
     return inst_codigos;
 };
 
-nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* raiz_xx)
+nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned char &xxx_xx_nod, nodo* &raiz_xx, nodo* &raiz_or2)
 {
     for (unsigned short i = 0; i < codigos_canonicos_xx.size(); i++)
     {
         if (codigos_canonicos_xx[i] == '0')
         {
-            //
-            std::cout << codigos_canonicos_xx.size() << std::endl;
-            std::cout << codigos_canonicos_xx << std::endl;
-            std::cout << codigos_canonicos_xx[0] << std::endl;
-            
-            
-            
             if (!raiz_xx->nodo_izq)
             {
                 raiz_xx->nodo_izq = new nodo(codigos_canonicos_xx.substr(0, i + 1), (i + 1 == codigos_canonicos_xx.size()) ? xxx_xx_nod : '\0');
@@ -80,17 +73,21 @@ nodo* preorden_insertar(const std::string &codigos_canonicos_xx, const unsigned 
             raiz_xx = raiz_xx->nodo_der;
         }
     }
-
-    return raiz_xx;
+    
+    std::cout << "(Created) " << "Value: " << short(xxx_xx_nod) << ", " << "Code: " << codigos_canonicos_xx << std::endl;
+    
+    return raiz_or2;
 };
 
 void postorden_remover(nodo* &raiz_xx2)
 {
     if (!raiz_xx2) return;
-
+    
     postorden_remover(raiz_xx2->nodo_izq);
     postorden_remover(raiz_xx2->nodo_der);
-
+    
+    std::cout << "(Deleted) " << "Value: " << short(raiz_xx2->valor_nodo) << ", " << "Code: " << raiz_xx2->cod_nodo << std::endl;
+    
     delete raiz_xx2;
 };
 
@@ -103,10 +100,12 @@ int main()
     
     std::string* codigos_canonicos_00 = generar_canonicos(dht_00, tam_arr_00);
     
-    nodo* raiz_00 = nullptr;
+    nodo* raiz_00 = new nodo;
+    nodo* raiz_or = raiz_00;
+    
     for (unsigned short i = 0; i < tam_arr_00; i++)
     {
-        raiz_00 = preorden_insertar(codigos_canonicos_00[i], lum_dc_nod[i], raiz_00);
+        raiz_00 = preorden_insertar(codigos_canonicos_00[i], lum_dc_nod[i], raiz_00, raiz_or);
     }
     
     postorden_remover(raiz_00);
