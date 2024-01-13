@@ -39,5 +39,5 @@
 <p align="left">
   <strong>Example Huffman binary tree visualization</strong>
   <br/>
-  <img src="https://github.com/emmanuelvelmo/Huffman-binary-tree-script/assets/51292782/774e6234-38c2-4930-a975-7b2bd1da1dad>
+  <img src="https://github.com/emmanuelvelmo/Huffman-binary-tree-script/assets/51292782/35ec817e-40c7-4bff-b6c9-45bb9280b5ce>
 </p>
