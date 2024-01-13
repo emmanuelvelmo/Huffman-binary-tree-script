@@ -1,5 +1,5 @@
 <p align="left">
-  <strong>Output text</strong>
+  <strong>Console output</strong>
   <br/>
   (Created) Value: 1, Code: 00
   <br/>
