@@ -1,7 +1,7 @@
 <p align="left">
   <strong>Output text</strong>
   <br/>
-  (Created) Value: 1, Code: 00
+(Created) Value: 1, Code: 00
   <br/>
   (Created) Value: 2, Code: 010
   <br/>
